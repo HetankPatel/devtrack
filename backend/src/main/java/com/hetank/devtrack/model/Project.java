@@ -1,8 +1,10 @@
 package com.hetank.devtrack.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 @Entity
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Table(name = "projects")
 public class Project {
 
@@ -64,3 +66,5 @@ public class Project {
         this.status = status;
     }
 }
+
+
