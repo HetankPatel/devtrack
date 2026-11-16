@@ -3,6 +3,7 @@ package com.hetank.devtrack.controller;
 import com.hetank.devtrack.model.Project;
 import com.hetank.devtrack.repository.ProjectRepository;
 import com.hetank.devtrack.repository.TaskRepository;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
@@ -49,7 +50,7 @@ public class ProjectController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Project createProject(
-            @RequestBody Project project) {
+            @Valid @RequestBody Project project) {
 
         project.setId(null);
 
@@ -60,7 +61,7 @@ public class ProjectController {
     @PutMapping("/{id}")
     public Project updateProject(
             @PathVariable Long id,
-            @RequestBody Project updatedProject) {
+            @Valid @RequestBody Project updatedProject) {
 
         Project project = projectRepository.findById(id)
                 .orElseThrow(() ->
@@ -97,4 +98,3 @@ public class ProjectController {
         projectRepository.delete(project);
     }
 }
-

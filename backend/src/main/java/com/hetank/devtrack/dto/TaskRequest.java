@@ -3,15 +3,23 @@ package com.hetank.devtrack.dto;
 import com.hetank.devtrack.model.Priority;
 import com.hetank.devtrack.model.TaskStatus;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+
 import java.time.LocalDate;
 
 public class TaskRequest {
 
+    @NotBlank(message = "Task title is required")
+    @Size(max = 100, message = "Task title must be 100 characters or less")
     private String title;
+    @Size(max = 1000, message = "Description must be 1000 characters or less")
     private String description;
     private TaskStatus status;
     private Priority priority;
     private LocalDate dueDate;
+    @NotNull(message = "Project is required")
     private Long projectId;
 
 

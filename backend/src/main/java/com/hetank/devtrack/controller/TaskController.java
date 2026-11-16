@@ -5,6 +5,7 @@ import com.hetank.devtrack.model.Project;
 import com.hetank.devtrack.model.Task;
 import com.hetank.devtrack.repository.ProjectRepository;
 import com.hetank.devtrack.repository.TaskRepository;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
@@ -53,7 +54,7 @@ public class TaskController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Task createTask(
-            @RequestBody TaskRequest request) {
+            @Valid @RequestBody TaskRequest request) {
 
         Project project = findProject(
                 request.getProjectId()
@@ -70,7 +71,7 @@ public class TaskController {
     @PutMapping("/{id}")
     public Task updateTask(
             @PathVariable Long id,
-            @RequestBody TaskRequest request) {
+            @Valid @RequestBody TaskRequest request) {
 
         Task task = taskRepository.findById(id)
                 .orElseThrow(() ->
@@ -131,4 +132,3 @@ public class TaskController {
         task.setProject(project);
     }
 }
-

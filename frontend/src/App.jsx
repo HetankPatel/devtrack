@@ -197,7 +197,7 @@ function App() {
                 className="close-button"
                 onClick={() => setShowProjectForm(false)}
               >
-                ×
+                Ã—
               </button>
             </div>
 
@@ -257,7 +257,7 @@ function App() {
                 className="close-button"
                 onClick={() => setShowTaskForm(false)}
               >
-                ×
+                Ã—
               </button>
             </div>
 
