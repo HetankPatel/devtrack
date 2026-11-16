@@ -10,6 +10,7 @@ import org.springframework.web.server.ResponseStatusException;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:5173")
 @RequestMapping("/api/projects")
 public class ProjectController {
 
@@ -96,3 +97,4 @@ public class ProjectController {
         projectRepository.delete(project);
     }
 }
+

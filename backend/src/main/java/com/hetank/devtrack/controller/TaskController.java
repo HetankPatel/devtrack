@@ -12,6 +12,7 @@ import org.springframework.web.server.ResponseStatusException;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:5173")
 @RequestMapping("/api/tasks")
 public class TaskController {
 
@@ -130,3 +131,4 @@ public class TaskController {
         task.setProject(project);
     }
 }
+
